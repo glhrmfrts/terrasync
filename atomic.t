@@ -121,7 +121,7 @@ function M.Atomic(T)
         return [T](C.atomic_exchange(&self.value, [AtomicType](value)))
     end
 
-    if type ~= bool then
+    if T ~= bool then
         terra Atomic:fetchadd(addvalue: T): T
             return [T](C.atomic_add(&self.value, [AtomicType](addvalue)))
         end
